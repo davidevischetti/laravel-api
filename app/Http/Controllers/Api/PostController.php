@@ -15,7 +15,14 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::with('user')->with('category')->with('tags')->paginate(12);
+        $posts = Post::with(['user','category','tags'])->paginate(12);
+        return response()->json($posts);
+    }
+
+
+    public function random()
+    {
+        $posts = Post::with(['user','category','tags'])->limit(6)->inRandomOrder()->get();
         return response()->json($posts);
     }
 
@@ -46,9 +53,12 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show($slug)
     {
-        //
+        $posts = Post::with(['user', 'category', 'tags'])->where('slug', $slug)->first();
+
+        return response()->json($posts);
+
     }
 
     /**
