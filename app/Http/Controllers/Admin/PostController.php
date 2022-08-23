@@ -72,8 +72,12 @@ class PostController extends Controller
         // dump($request->all());
         $form_data = $request->all();
 
-        $img_path = Storage::put('uploads', $form_data['image']);
-        $form_data['image'] = $img_path;
+        if (key_exists('image', $form_data)) {
+            $img_path = Storage::put('uploads', $form_data['image']);
+            $form_data['image'] = $img_path;
+        }
+
+
 
         $formData = $form_data + [
             'user_id' => Auth::id()
@@ -129,6 +133,15 @@ class PostController extends Controller
         $request->validate($this->validation_rules);
 
         $formData = $request->all();
+
+        if(key_exists('image', $formData)) {
+            if($post->image) {
+                Storage::delete($post->image);
+
+                $img_path = Storage::put('uploads', $formData['image']);
+                $formData['image'] = $img_path;
+            }
+        }
         $post->update($formData);// con protected $fillable nel model
         $post->tags()->sync($formData['tags']);
 

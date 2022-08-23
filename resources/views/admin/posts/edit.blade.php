@@ -7,7 +7,7 @@
 <div class="d-flex">
     @include('admin/partials/side-nav')
 
-    <form action="{{route('admin.posts.update',['post' => $post])}}" method="post">
+    <form action="{{route('admin.posts.update',['post' => $post])}}" method="post" enctype="multipart/form-data">
         @method('put')
         @csrf
         <div class="mb-3">
@@ -17,6 +17,15 @@
         <div class="mb-3">
             <label class="form-label" for="series">slug</label>
             <input class="form-control" type="text" name="slug" id="slug" value="{{$post->slug}}">
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="image">image</label>
+            <input class="form-control" type="file" name="image" id="image" accept="image/*" value="{{old('image', $post->image)}}">
+            @error('image')
+                <div class="invalid-feedback">
+                    {{$message}}
+                </div>
+            @enderror
         </div>
         <div class="mb-3">
             <label class="form-label" for="type">content</label>
