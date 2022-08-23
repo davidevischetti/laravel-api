@@ -8,7 +8,7 @@
 
     <div class="container">
         <h1>{{$post->title}}</h1>
-        <img src="{{$post->image}}" alt="">
+        <img src="{{asset('storage/' . $post->image)}}" alt="">
         <p class="content">{{$post->content}}</p>
         <h3>Author:{{$post->user->name}}</h3>
         <div>Category:{{$post->category->name}}</div>

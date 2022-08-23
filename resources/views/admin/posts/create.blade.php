@@ -6,7 +6,7 @@
 <div class="d-flex">
     @include('admin/partials/side-nav')
 
-    <form class="container" action="{{route('admin.posts.store')}}" method="post">
+    <form class="container" action="{{route('admin.posts.store')}}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
             <label class="form-label" for="title">title</label>
@@ -28,7 +28,7 @@
         </div>
         <div class="mb-3">
             <label class="form-label" for="image">image</label>
-            <input class="form-control" type="url" name="image" id="image" value="{{old('image')}}">
+            <input class="form-control" type="file" name="image" id="image" accept="image/*" value="{{old('image')}}">
             @error('image')
                 <div class="invalid-feedback">
                     {{$message}}
