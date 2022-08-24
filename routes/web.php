@@ -26,10 +26,10 @@ Route::middleware('auth')
     ->prefix('admin')
     ->group(function () {
         Route::get('/', 'AdminController@dashboard')->name('dashboard');
-        Route::resource('posts','PostController');
-        Route::get('my-posts', 'PostController@myIndex')->name('posts.myIndex');
         Route::get('users', 'UserController@index')->name('users.index');
         Route::resource('categories', 'CategoryController');
+        Route::resource('posts','PostController');
+        Route::get('my-posts', 'PostController@myIndex')->name('posts.myIndex');
         Route::resource('tags', 'TagController');
     });
 

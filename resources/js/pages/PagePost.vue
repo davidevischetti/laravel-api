@@ -8,6 +8,8 @@
                {{tag.name}}
             </span>
         </div>
+        <img :src="post.image" :alt="post.title">
+        <p>{{post.content}}</p>
     </div>
 </template>
 

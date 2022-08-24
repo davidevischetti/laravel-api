@@ -5652,7 +5652,12 @@ var render = function render() {
       key: tag.id,
       staticClass: "tag"
     }, [_vm._v("\n           " + _vm._s(tag.name) + "\n        ")]);
-  }), 0)]) : _vm._e();
+  }), 0), _vm._v(" "), _c("img", {
+    attrs: {
+      src: _vm.post.image,
+      alt: _vm.post.title
+    }
+  }), _vm._v(" "), _c("p", [_vm._v(_vm._s(_vm.post.content))])]) : _vm._e();
 };
 
 var staticRenderFns = [];
