@@ -37,7 +37,7 @@ export default {
 
     methods: {
         submitMessage() {
-            axios.post('/api/leads/create', {
+            axios.post('/api/leads', {
                 name: this.name,
                 email: this.email,
                 message: this.message,

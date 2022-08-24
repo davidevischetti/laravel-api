@@ -5247,7 +5247,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     submitMessage: function submitMessage() {
-      axios.post('/api/leads/create', {
+      axios.post('/api/leads', {
         name: this.name,
         email: this.email,
         message: this.message,
