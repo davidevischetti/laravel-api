@@ -10,6 +10,6 @@
     {{-- <h1>Ciao {{$lead->name}}</h1> --}}
     <p>Abbiamo ricavuto il tuo messaggio:</p>
     {{-- <p>{{$lead->message}}</p> --}}
-    <p>Qualcuno del nostro staff le rispondera al pi&uacute; presto.</p>
+    <p>Qualcuno del nostro staff le risponder&aacute; al pi&uacute; presto.</p>
 </body>
 </html>
